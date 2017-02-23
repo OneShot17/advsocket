@@ -14,12 +14,17 @@ import json
 class Client:
     """User-friendly networking client"""
 
-    def __init__(self):
-        """Takes an address and port of a server to connect to.
+    def __init__(self, sock=None):
+        """Optionally takes a socket to use for this client.
         Returns a new Client."""
 
-        # Create socket
-        self.sock = socket.socket()
+        # Check if socket was passed
+        if socket == None:
+            # Create socket
+            self.sock = socket.socket()
+        else:
+            # Store passed socket
+            self.sock = sock
 
         # Open connection
         self.sock.connect((address, port))
@@ -101,6 +106,3 @@ class Client:
         """Close client connection"""
         
         self.sock.close()
-
-    @classmethod
-    def 
