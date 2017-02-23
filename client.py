@@ -43,6 +43,13 @@ class Client:
 
         self.__send(json_str)
 
+    def basic_send(self, message: bytes, max_len=4096: int):
+        """Takes a byte array and transmits it."""
+        self.sock.send(message, max_len)
+
+    def basic_recv(self):
+        """Basic socket recv function"""
+        return self.sock.recv()
         
     def __send(self message: str):
         """Takes a string, breaks it into parts, and sends it."""
